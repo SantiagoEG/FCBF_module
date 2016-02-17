@@ -7,10 +7,9 @@ This module implements FCBF algorithm to perform Feature Selection in Machine Le
 
 References:
 
-*[1] 
-*[2]
-*[3]
-
+[1] 
+[2]
+[3]
 
 
 # Example of use
