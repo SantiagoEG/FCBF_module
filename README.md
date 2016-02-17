@@ -7,12 +7,27 @@ This module implements FCBF algorithm to perform Feature Selection in Machine Le
 
 References:
 
-[1] 
+*[1] 
+*[2]
+*[3]
+
+
+
+# Example of use
+import FCBF_module
+from sklearn 
+
+
+print "Accuracy for the original dataset:{}".format(accuracy)
 
 
 
 
-# Example of use:
+print "Accuracy for the subset with {} features:{}".format(k,accuracy)
+
+
+Output:
+
 
 
 
