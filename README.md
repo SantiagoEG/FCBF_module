@@ -5,9 +5,6 @@ This module implements FCBF [1] and FCBF# [2] algorithms in order to perform Fea
 
 Also note that npieces must be a divisor of the size of the original dataset. In short, if we want to get a feature subset from dataset with 70 variables, we could set npieces = 2, 5, 7, 10, 14 or 35. If the original size of the dataset is prime, for example 71, the algorithm detects this case automatically and reduces the set to 70 variables by removing the worst feature. Thereby, we could set npieces = 2, 5, 7, 10, 14 or 35. 
 
-
-
-
 References:
 
 [1] L. Yu and H. Liu. Feature Selection for High‐Dimensional Data: A Fast Correlation‐Based Filter Solution. In Proceedings of The Twentieth International Conference on Machine Leaning (ICML‐03), 856‐863, Washington, D.C., August 21‐24, 2003.
@@ -17,19 +14,8 @@ References:
 
 
 # Example of use
-import FCBF_module
-from sklearn 
 
-
-print "Accuracy for the original dataset:{}".format(accuracy)
-
-
-
-
-print "Accuracy for the subset with {} features:{}".format(k,accuracy)
-
-
-Output:
+To have look to one usage example see "test.py".
 
 
 
