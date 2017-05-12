@@ -34,7 +34,7 @@ def symmetricalUncertain(x,y):
 
 def suGroup(x, n):
     m = x.shape[0]
-    x = np.reshape(x, (n,m/float(n))).T
+    x = np.reshape(x, (n,m/n)).T
     m = x.shape[1]
     SU_matrix = np.zeros(shape = (m,m))
     for j in range(m-1):
@@ -50,13 +50,24 @@ def suGroup(x, n):
 def isprime(a):
     return all(a % i for i in xrange(2, a))
 
+
+"""
+get
+"""
+
 def get_i(a):
     if isprime(a):
         a -= 1
     return filter(lambda x: a % x == 0, range(2,a))
 
 
-    
+"""
+FCBF - Fast Correlation Based Filter
+
+L. Yu and H. Liu. Feature Selection for High‐Dimensional Data: A Fast Correlation‐Based Filter Solution. 
+In Proceedings of The Twentieth International Conference on Machine Leaning (ICML‐03), 856‐863.
+Washington, D.C., August 21‐24, 2003.
+"""
 
 class FCBF:
     
@@ -152,7 +163,12 @@ class FCBF:
         return x[:, self.idx_sel]  
 
 
-
+"""
+FCBF# - Fast Correlation Based Filter 
+B. Senliol, G. Gulgezen, et al. Fast Correlation Based Filter (FCBF) with a Different Search Strategy. 
+In Computer and Information Sciences (ISCIS ‘08) 23rd International Symposium on, pages 1‐4. 
+Istanbul, October 27‐29, 2008.
+"""
 class FCBFK(FCBF):
     
     idx_sel = []
@@ -226,9 +242,19 @@ class FCBFK(FCBF):
                     self.idx_sel.remove(self.idx_sel[i])
                     if x_sorted.shape[1] == self.k: break  
                     
-            if x_list.shape[1] == 1 or x_sorted.shape[1] == self.k: break    
+            if x_list.shape[1] == 1 or x_sorted.shape[1] == self.k: 
+                break    
             j = j + 1
-    
+            
+        if len(self.idx_sel) > self.k:
+            self.idx_sel = self.idx_sel[:self.k]
+            
+            
+            
+"""
+FCBFiP - Fast Correlation Based Filter in Pieces
+"""            
+            
 class FCBFiP(FCBF):
     
     idx_sel = []
@@ -318,7 +344,7 @@ class FCBFiP(FCBF):
             ind =  np.argmax(scores_temp)
             scores_temp[ind] = -100000000
             self.idx_sel[i] = ind
-#        self.idx_sel = np.sort(self.idx_sel)       
+
         
         
 
